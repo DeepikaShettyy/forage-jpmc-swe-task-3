@@ -1,6 +1,6 @@
 #!/bin/bash
 # JP Morgan & Chase
-# Forage Job Simulation: Task 2
+# Forage Job Simulation: Task 3
 
 # Function to compare two version strings
 version_gt() { test "$(printf '%s\n' "$@" | sort -V | head -n 1)" != "$1"; }
@@ -15,8 +15,8 @@ handle_error() {
 if version_gt "$(node --version)" "$(npm view node version)"; then
     echo "Updating Node.js to the latest version..."
     npm install -g npm@latest
-    sudo npm install -g n
-    if ! sudo n latest; then
+    npm install -g n
+    if ! n latest; then
         handle_error "Failed to update Node.js. Please check npm logs for errors."
     fi
     echo "Node.js updated to the latest version."
